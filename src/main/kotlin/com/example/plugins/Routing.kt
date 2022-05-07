@@ -13,9 +13,11 @@ fun Application.configureRouting() {
 
     routing {
         randomRabbit()
-
+        get("/") {
+            call.respondText("Hello World!")
+        }
         // Static plugin. Try to access `/static/index.html`
-        static {
+        static() {
             resources("static")
         }
     }
