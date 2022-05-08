@@ -6,7 +6,7 @@ import io.ktor.server.application.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
 
-private const val BASE_URL = "https://boiling-wildwood-72078.herokuapp.com/"
+private const val BASE_URL = "https://api25806.herokuapp.com/"
 
 private val rabbits = listOf(
     Rabbit("Carl","Brown rabbi","$BASE_URL/rabbits/rabbit1.png")
