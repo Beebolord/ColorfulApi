@@ -17,5 +17,8 @@ fun Route.randomRabbit() {
             rabbits.random()
         )
     }
+    get("/") {
+        call.respondText("HELLO WORLD!", contentType = ContentType.Text.Plain)
+    }
 
 }
