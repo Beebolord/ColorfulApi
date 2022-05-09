@@ -27,8 +27,10 @@ fun Route.randomRabbit() {
 
         val paramVal1 = parameters["param1"]
         val paramVal2 = parameters["param2"]
-
         call.respondText("This is a test POST request with parameter values $paramVal1 and $paramVal2")
+    }
+    get("/test") {
+        call.respondText("Message received",contentType = ContentType.Text.Plain)
     }
 
 }
