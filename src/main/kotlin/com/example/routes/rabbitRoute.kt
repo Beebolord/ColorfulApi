@@ -20,7 +20,7 @@ fun Route.randomRabbit() {
         )
     }
     get("/") {
-        call.respondText("HELLO WORLD!", contentType = ContentType.Text.Plain)
+        call.respondText("HELLO WORLD I changed!", contentType = ContentType.Text.Plain)
     }
     post("/post") {
         val parameters = call.receiveParameters()
