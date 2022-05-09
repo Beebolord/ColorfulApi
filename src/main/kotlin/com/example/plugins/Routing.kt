@@ -1,5 +1,6 @@
 package com.example.plugins
 
+import com.example.routes.posting
 import com.example.routes.randomRabbit
 import io.ktor.server.routing.*
 import io.ktor.http.*
@@ -13,6 +14,7 @@ fun Application.configureRouting() {
 
     routing {
         randomRabbit()
+        posting()
         get("/") {
             call.respondText("Hello World!")
         }

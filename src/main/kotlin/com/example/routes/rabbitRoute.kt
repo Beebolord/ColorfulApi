@@ -13,6 +13,8 @@ private const val BASE_URL = "https://api25806.herokuapp.com/"
 private val rabbits = listOf(
     Rabbit("Carl","Brown rabbi","$BASE_URL/rabbits/rabbit1.png")
 )
+private val color = "0xff3399"
+
 fun Route.randomRabbit() {
     get("/randomRabbit") {
         call.respond(HttpStatusCode.OK,
@@ -22,6 +24,16 @@ fun Route.randomRabbit() {
     get("/") {
         call.respondText("HELLO WORLD I changed!", contentType = ContentType.Text.Plain)
     }
+
+    get("/test") {
+        call.respondText("Message received",contentType = ContentType.Text.Plain)
+    }
+    get("/firstBall") {
+        call.respondText("0xff3399")
+    }
+}
+
+fun Route.posting() {
     post("/post") {
         val parameters = call.receiveParameters()
 
@@ -29,8 +41,4 @@ fun Route.randomRabbit() {
         val paramVal2 = parameters["param2"]
         call.respondText("This is a test POST request with parameter values $paramVal1 and $paramVal2")
     }
-    get("/test") {
-        call.respondText("Message received",contentType = ContentType.Text.Plain)
-    }
-
 }
