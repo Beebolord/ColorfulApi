@@ -8,3 +8,9 @@ data class Rabbit (
     val description : String,
     val imageUrl : String
 )
+
+@Serializable
+data class HexoCode (
+    val hexadecimal : String,
+    val ball : String
+        )
