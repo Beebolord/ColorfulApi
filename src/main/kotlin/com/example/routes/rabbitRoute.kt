@@ -8,6 +8,7 @@ import io.ktor.server.request.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
 import io.netty.handler.codec.http.HttpMethod.POST
+import io.netty.handler.codec.http.HttpResponse
 
 private const val BASE_URL = "https://api25806.herokuapp.com"
 
@@ -38,14 +39,9 @@ fun Route.randomRabbit() {
     get("/firstBall") {
         call.respond(HttpStatusCode.OK,hexes)
     }
-}
-
-fun Route.posting() {
-    post("/post") {
-        val parameters = call.receiveParameters()
-
-        val paramVal1 = parameters["param1"]
-        val paramVal2 = parameters["param2"]
-        call.respondText("This is a test POST request with parameter values $paramVal1 and $paramVal2")
+    post("/postting") {
+        call.respondText("yoooooooooo")
     }
+
+
 }
