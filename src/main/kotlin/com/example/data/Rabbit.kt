@@ -14,3 +14,9 @@ data class HexoCode (
     val hexadecimal : String,
     val ball : String
         )
+@Serializable
+data class Shifts (
+    val date : String,
+    val job : String,
+    val shift : String
+        )

@@ -2,6 +2,7 @@ package com.example.routes
 
 import com.example.data.HexoCode
 import com.example.data.Rabbit
+import com.example.data.SheduleGetter
 import io.ktor.http.*
 import io.ktor.server.application.*
 import io.ktor.server.request.*
@@ -9,6 +10,7 @@ import io.ktor.server.response.*
 import io.ktor.server.routing.*
 import io.netty.handler.codec.http.HttpMethod.POST
 import io.netty.handler.codec.http.HttpResponse
+import java.io.File
 
 private const val BASE_URL = "https://api25806.herokuapp.com"
 
@@ -22,7 +24,7 @@ private val hexes = listOf (
 )
 
 private val color = "0xff3399"
-
+private val file = File("""C:\\Users\\ismae\\IdeaProjects\\ColorfulApi\\src\\main\\resources\\static\\shedule.json""")
 fun Route.randomRabbit() {
     get("/randomRabbit") {
         call.respond(HttpStatusCode.OK,
@@ -38,6 +40,9 @@ fun Route.randomRabbit() {
     }
     get("/firstBall") {
         call.respond(HttpStatusCode.OK,hexes)
+    }
+    get("/shedule") {
+        call.respond(HttpStatusCode.OK, SheduleGetter.Hemingway())
     }
     post("/postting") {
         call.respondText("yoooooooooo")
