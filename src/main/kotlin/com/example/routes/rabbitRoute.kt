@@ -2,7 +2,7 @@ package com.example.routes
 
 import com.example.data.HexoCode
 import com.example.data.Rabbit
-import com.example.data.SheduleGetter
+import com.example.data.Tutorial
 import io.ktor.http.*
 import io.ktor.server.application.*
 import io.ktor.server.request.*
@@ -22,9 +22,9 @@ private val hexes = listOf (
     HexoCode("0xff3399","First"),
     HexoCode("0xff33FF","Second")
 )
-
+private  val tutorial = Tutorial()
 private val color = "0xff3399"
-private val file = File("""C:\\Users\\ismae\\IdeaProjects\\ColorfulApi\\src\\main\\resources\\static\\shedule.json""")
+private val file = File("""C:\Users\ismae\IdeaProjects\ColorfulApi\src\main\resources\static\file.json""")
 fun Route.randomRabbit() {
     get("/randomRabbit") {
         call.respond(HttpStatusCode.OK,
@@ -42,7 +42,8 @@ fun Route.randomRabbit() {
         call.respond(HttpStatusCode.OK,hexes)
     }
     get("/shedule") {
-        call.respond(HttpStatusCode.OK, SheduleGetter.Hemingway())
+        tutorial.main()
+        call.respond(HttpStatusCode.OK, file.name)
     }
     post("/postting") {
         call.respondText("yoooooooooo")

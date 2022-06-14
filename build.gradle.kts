@@ -34,4 +34,6 @@ dependencies {
     implementation("ch.qos.logback:logback-classic:$logback_version")
     testImplementation("io.ktor:ktor-server-tests-jvm:$ktor_version")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version")
+    implementation(group = "org.seleniumhq.selenium", name = "selenium-java", version = "3.+")
+    implementation("com.google.code.gson:gson:2.8.5")
 }
