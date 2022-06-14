@@ -42,8 +42,7 @@ fun Route.randomRabbit() {
         call.respond(HttpStatusCode.OK,hexes)
     }
     get("/shedule") {
-        tutorial.main()
-        call.respondText(file.name)
+        call.respond(HttpStatusCode.OK, file.name)
     }
     post("/postting") {
         call.respondText("yoooooooooo")
