@@ -6,6 +6,7 @@ import com.example.data.Shift
 import com.example.data.Tutorial
 import com.example.ticket.Data.Shedule.getMyScheduleDaddy
 import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import io.ktor.http.*
 import io.ktor.server.application.*
 import io.ktor.server.request.*
@@ -16,30 +17,24 @@ import io.netty.handler.codec.http.HttpResponse
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import java.io.File
+private val file = File("""C:\Users\ismae\IdeaProjects\ColorfulApi\src\main\resources\static\file.json""")
 
 private const val BASE_URL = "https://api25806.herokuapp.com"
 
 private val rabbits = listOf(
     Rabbit("Carl","Brown rabbi","$BASE_URL/rabbits/rabbit1.png")
 )
-
+private val gson = Gson()
 private val hexes = listOf (
     HexoCode("0xff3399","First"),
     HexoCode("0xff33FF","Second")
 )
-
-private val gson = Gson()
+val typeToken = object : TypeToken<List<Shift>>() {}.type
+val jsonString = gson.fromJson<List<Shift>>(file.readText(Charsets.UTF_8), typeToken)
 private  val tutorial = Tutorial()
 private val color = "0xff3399"
-private val file = File("""C:\Users\ismae\IdeaProjects\ColorfulApi\src\main\resources\static\file.json""")
 fun Route.randomRabbit() {
     var shifts2 : List<Shift>? = null
-
-    runBlocking {
-        launch {
-            shifts2 = getMyScheduleDaddy()
-        }
-    }
 
         get("/randomRabbit") {
             call.respond(
@@ -58,7 +53,7 @@ fun Route.randomRabbit() {
             call.respond(HttpStatusCode.OK, hexes)
         }
         get("/shedule") {
-            call.respond(HttpStatusCode.OK, shifts2 ?: "")
+            call.respond(HttpStatusCode.OK, jsonString ?: "")
         }
         post("/postting") {
             call.respondText("yoooooooooo")
