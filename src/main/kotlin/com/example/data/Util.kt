@@ -8,7 +8,7 @@ import kotlinx.coroutines.runBlocking
 import java.io.File
 import kotlinx.coroutines.*
 import java.io.IOException
-suspend fun getMyScheduleDaddy() : List<Shift>? {
+fun getMyScheduleDaddy() : List<Shift> {
         val typeToken = object : TypeToken<List<Shift>>() {}.type
         val gson = Gson()
         val jsonString = gson.fromJson<List<Shift>>(file.readText(Charsets.UTF_8), typeToken)

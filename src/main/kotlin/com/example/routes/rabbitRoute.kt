@@ -24,12 +24,10 @@ private const val BASE_URL = "https://api25806.herokuapp.com"
 private val rabbits = listOf(
     Rabbit("Carl","Brown rabbi","$BASE_URL/rabbits/rabbit1.png")
 )
-private val gson = Gson()
 private val hexes = listOf (
     HexoCode("0xff3399","First"),
     HexoCode("0xff33FF","Second")
 )
-private  val tutorial = Tutorial()
 private val color = "0xff3399"
 fun Route.randomRabbit() {
     var shifts2 : List<Shift>? = null
@@ -51,7 +49,8 @@ fun Route.randomRabbit() {
             call.respond(HttpStatusCode.OK, hexes)
         }
         get("/shedule") {
-            call.respond(HttpStatusCode.OK,file)
+            call.respond(HttpStatusCode.OK,
+                        getMyScheduleDaddy())
         }
         post("/postting") {
             call.respondText("yoooooooooo")
