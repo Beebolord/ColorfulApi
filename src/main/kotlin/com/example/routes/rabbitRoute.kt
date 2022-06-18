@@ -13,6 +13,8 @@ import io.ktor.server.response.*
 import io.ktor.server.routing.*
 import io.netty.handler.codec.http.HttpMethod.POST
 import io.netty.handler.codec.http.HttpResponse
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 import java.io.File
 
 private const val BASE_URL = "https://api25806.herokuapp.com"
@@ -27,7 +29,11 @@ private val hexes = listOf (
 )
 
 
-
+private val shifts1 = runBlocking {
+    launch {
+        getMyScheduleDaddy()
+    }
+}
 
 private val gson = Gson()
 private  val tutorial = Tutorial()
