@@ -4,7 +4,6 @@ import com.example.data.HexoCode
 import com.example.data.Rabbit
 import com.example.data.Shift
 import com.example.data.Tutorial
-import com.example.ticket.Data.Shedule.getMyScheduleDaddy
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import io.ktor.http.*
