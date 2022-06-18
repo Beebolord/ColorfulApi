@@ -4,7 +4,7 @@ import com.example.data.HexoCode
 import com.example.data.Rabbit
 import com.example.data.Shift
 import com.example.data.Tutorial
-import com.example.ticket.Data.Shedule.getMyScheduleDaddy
+import com.example.ticket.Data.Shedule.getData
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import io.ktor.http.*
@@ -50,7 +50,7 @@ fun Route.randomRabbit() {
         }
         get("/shedule") {
             call.respond(HttpStatusCode.OK,
-                        getMyScheduleDaddy())
+                        getData())
         }
         post("/postting") {
             call.respondText("yoooooooooo")

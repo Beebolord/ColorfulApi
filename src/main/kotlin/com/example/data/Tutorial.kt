@@ -100,7 +100,6 @@ class Tutorial {
         val password: String,
         val password_id: String
     )
-    @Serializable
     data class Shift(
         @SerializedName("date") val date : String,
         @SerializedName("job") val job : String,
