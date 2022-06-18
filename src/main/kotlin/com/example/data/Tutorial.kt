@@ -1,5 +1,6 @@
 package com.example.data
 import com.google.gson.Gson
+import com.google.gson.annotations.SerializedName
 import org.openqa.selenium.By
 import org.openqa.selenium.JavascriptExecutor
 import org.openqa.selenium.firefox.FirefoxDriver
@@ -100,9 +101,9 @@ class Tutorial {
     )
 
     data class Shift(
-        val date: String,
-        val job: String,
-        val hours: String,
+        @SerializedName("date") val date : String,
+        @SerializedName("job") val job : String,
+        @SerializedName("Shift")val shift : String
     )
 
 
