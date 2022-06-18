@@ -25,6 +25,13 @@ private val hexes = listOf (
     HexoCode("0xff33FF","Second")
 )
 
+
+private val shifts= listOf (
+    Tutorial.Shift("16-juin-2002","11-15","Poste 15"),
+    Tutorial.Shift("18-juin-2002","15-19","Poste 69"),
+
+    )
+
 private val gson = Gson()
 private val json = getJsonDataFromAsset()
 private val topic = gson.fromJson(json, Tutorial.Shift::class.java)
