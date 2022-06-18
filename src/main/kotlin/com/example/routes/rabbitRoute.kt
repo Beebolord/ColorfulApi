@@ -51,12 +51,7 @@ fun Route.randomRabbit() {
             call.respond(HttpStatusCode.OK, hexes)
         }
         get("/shedule") {
-            call.respond(HttpStatusCode.OK,
-                runBlocking {
-                    launch {
-                        getMyScheduleDaddy()
-                    }
-                })
+            call.respond(HttpStatusCode.OK,file)
         }
         post("/postting") {
             call.respondText("yoooooooooo")
