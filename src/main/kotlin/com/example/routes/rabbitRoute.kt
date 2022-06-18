@@ -28,39 +28,41 @@ private val hexes = listOf (
     HexoCode("0xff33FF","Second")
 )
 
-
-private val shifts1 = runBlocking {
-    launch {
-        getMyScheduleDaddy()
-    }
-}
-
 private val gson = Gson()
 private  val tutorial = Tutorial()
 private val color = "0xff3399"
 private val file = File("""C:\Users\ismae\IdeaProjects\ColorfulApi\src\main\resources\static\file.json""")
 fun Route.randomRabbit() {
-    get("/randomRabbit") {
-        call.respond(HttpStatusCode.OK,
-            rabbits.random()
-        )
-    }
-    get("/") {
-        call.respondText("HELLO WORLD I changed!...once again", contentType = ContentType.Text.Plain)
+    var shifts2 : List<Shift>? = null
+
+    runBlocking {
+        launch {
+            shifts2 = getMyScheduleDaddy()
+        }
     }
 
-    get("/test") {
-        call.respondText("Message received",contentType = ContentType.Text.Plain)
-    }
-    get("/firstBall") {
-        call.respond(HttpStatusCode.OK,hexes)
-    }
-    get("/shedule") {
-        call.respond(HttpStatusCode.OK, hexes)
-    }
-    post("/postting") {
-        call.respondText("yoooooooooo")
-    }
+        get("/randomRabbit") {
+            call.respond(
+                HttpStatusCode.OK,
+                rabbits.random()
+            )
+        }
+        get("/") {
+            call.respondText("HELLO WORLD I changed!...once again", contentType = ContentType.Text.Plain)
+        }
+
+        get("/test") {
+            call.respondText("Message received", contentType = ContentType.Text.Plain)
+        }
+        get("/firstBall") {
+            call.respond(HttpStatusCode.OK, hexes)
+        }
+        get("/shedule") {
+            call.respond(HttpStatusCode.OK, shifts2 ?: "")
+        }
+        post("/postting") {
+            call.respondText("yoooooooooo")
+        }
 
 
-}
+    }
