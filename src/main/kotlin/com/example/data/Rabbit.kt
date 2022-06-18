@@ -1,5 +1,6 @@
 package com.example.data
 
+import com.google.gson.annotations.SerializedName
 import kotlinx.serialization.Serializable
 
 @Serializable
@@ -14,9 +15,11 @@ data class HexoCode (
     val hexadecimal : String,
     val ball : String
         )
-@Serializable
+
+
+
 data class Shifts (
-    val date : String,
-    val job : String,
-    val shift : String
+    @SerializedName("date") val date : String,
+    @SerializedName("job") val job : String,
+    @SerializedName("Shift")val shift : String
         )
