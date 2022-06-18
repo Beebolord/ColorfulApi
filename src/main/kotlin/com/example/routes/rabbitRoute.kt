@@ -49,7 +49,7 @@ fun Route.randomRabbit() {
             call.respond(HttpStatusCode.OK, hexes)
         }
         get("/shedule") {
-            call.respondText(getData(), contentType = ContentType.Text.Plain)
+            call.respondText("heyyy", contentType = ContentType.Text.Plain)
         }
         post("/postting") {
             call.respondText("yoooooooooo")
