@@ -4,6 +4,7 @@ import com.example.data.HexoCode
 import com.example.data.Rabbit
 import com.example.data.Shift
 import com.example.data.Tutorial
+import com.example.ticket.Data.Shedule.getMyScheduleDaddy
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import io.ktor.http.*
@@ -28,8 +29,6 @@ private val hexes = listOf (
     HexoCode("0xff3399","First"),
     HexoCode("0xff33FF","Second")
 )
-val typeToken = object : TypeToken<List<Shift>>() {}.type
-val jsonString = gson.fromJson<List<Shift>>(file.readText(Charsets.UTF_8), typeToken)
 private  val tutorial = Tutorial()
 private val color = "0xff3399"
 fun Route.randomRabbit() {
@@ -52,7 +51,12 @@ fun Route.randomRabbit() {
             call.respond(HttpStatusCode.OK, hexes)
         }
         get("/shedule") {
-            call.respond(HttpStatusCode.OK, jsonString ?: "")
+            call.respond(HttpStatusCode.OK,
+                runBlocking {
+                    launch {
+                        getMyScheduleDaddy()
+                    }
+                })
         }
         post("/postting") {
             call.respondText("yoooooooooo")
