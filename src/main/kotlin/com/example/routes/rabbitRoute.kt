@@ -2,6 +2,7 @@ package com.example.routes
 
 import com.example.data.HexoCode
 import com.example.data.Rabbit
+import com.example.data.Shift
 import com.example.data.Tutorial
 import com.example.ticket.Data.Shedule.getJsonDataFromAsset
 import com.google.gson.Gson
@@ -27,9 +28,8 @@ private val hexes = listOf (
 
 
 private val shifts= listOf (
-    Tutorial.Shift("16-juin-2002","11-15","Poste 15"),
-    Tutorial.Shift("18-juin-2002","15-19","Poste 69"),
-
+    Shift("16-juin-2002","11-15","Poste 15"),
+    Shift("18-juin-2002","15-19","Poste 69"),
     )
 
 private val gson = Gson()
@@ -55,7 +55,7 @@ fun Route.randomRabbit() {
         call.respond(HttpStatusCode.OK,hexes)
     }
     get("/shedule") {
-        call.respond(HttpStatusCode.OK, hexes)
+        call.respond(HttpStatusCode.OK, shifts)
     }
     post("/postting") {
         call.respondText("yoooooooooo")
