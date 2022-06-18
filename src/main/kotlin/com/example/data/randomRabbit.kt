@@ -8,7 +8,6 @@ import io.ktor.server.response.*
 import io.ktor.server.routing.*
 import java.io.File
 import com.example.data.Tutorial.Shift
-import com.example.ticket.Data.Shedule.getJsonDataFromAsset
 
 private const val BASE_URL = "https://api25806.herokuapp.com"
 
@@ -22,8 +21,6 @@ private val hexes = listOf (
 )
 
 private val gson = Gson()
-private val json = getJsonDataFromAsset()
-private val topic = gson.fromJson(json, Shift::class.java)
 fun Route.randomRabbit() {
     get("/randomRabbit") {
         call.respond(

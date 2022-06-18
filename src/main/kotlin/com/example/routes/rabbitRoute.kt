@@ -4,7 +4,7 @@ import com.example.data.HexoCode
 import com.example.data.Rabbit
 import com.example.data.Shift
 import com.example.data.Tutorial
-import com.example.ticket.Data.Shedule.getJsonDataFromAsset
+import com.example.ticket.Data.Shedule.getMyScheduleDaddy
 import com.google.gson.Gson
 import io.ktor.http.*
 import io.ktor.server.application.*
@@ -27,14 +27,10 @@ private val hexes = listOf (
 )
 
 
-private val shifts= listOf (
-    Shift("16-juin-2002","11-15","Poste 15"),
-    Shift("18-juin-2002","15-19","Poste 69"),
-    )
+private val shifts= getMyScheduleDaddy()
+
 
 private val gson = Gson()
-private val json = getJsonDataFromAsset()
-private val topic = gson.fromJson(json, Tutorial.Shift::class.java)
 private  val tutorial = Tutorial()
 private val color = "0xff3399"
 private val file = File("""C:\Users\ismae\IdeaProjects\ColorfulApi\src\main\resources\static\file.json""")
