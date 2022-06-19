@@ -56,7 +56,7 @@ fun Route.randomRabbit() {
             call.respond(HttpStatusCode.OK, hexes)
         }
         get("/shedule") {
-            call.respond(HttpStatusCode.OK, sheduleData ?: "")
+            call.respond(HttpStatusCode.OK, sheduleData!!)
         }
         post("/postting") {
             call.respondText("yoooooooooo")
