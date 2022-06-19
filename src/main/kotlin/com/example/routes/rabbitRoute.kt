@@ -21,6 +21,7 @@ private val file = File("""C:\Users\ismae\IdeaProjects\ColorfulApi\src\main\reso
 
 private const val BASE_URL = "https://api25806.herokuapp.com"
 
+
 private val rabbits = listOf(
     Rabbit("Carl","Brown rabbi","$BASE_URL/rabbits/rabbit1.png")
 )
@@ -28,10 +29,16 @@ private val hexes = listOf (
     HexoCode("0xff3399","First"),
     HexoCode("0xff33FF","Second")
 )
+
 private val color = "0xff3399"
 fun Route.randomRabbit() {
     var shifts2 : List<Shift>? = null
-
+    var sheduleData : List<Shift>? = null
+    runBlocking {
+        launch {
+            sheduleData = getData()
+        }
+    }
         get("/randomRabbit") {
             call.respond(
                 HttpStatusCode.OK,
@@ -49,7 +56,7 @@ fun Route.randomRabbit() {
             call.respond(HttpStatusCode.OK, hexes)
         }
         get("/shedule") {
-            call.respondText("heyyy", contentType = ContentType.Text.Plain)
+            call.respond(HttpStatusCode.OK, sheduleData ?: "")
         }
         post("/postting") {
             call.respondText("yoooooooooo")

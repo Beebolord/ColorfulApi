@@ -8,12 +8,12 @@ import com.google.gson.reflect.TypeToken
 import kotlinx.coroutines.runBlocking
 import java.io.File
 import kotlinx.coroutines.*
+import java.io.BufferedReader
 import java.io.IOException
-fun getData() : String{
+suspend fun getData() : List<Shift>{
     val file = File("""C:\Users\ismae\IdeaProjects\ColorfulApi\src\main\resources\static\file.json""")
     val typeToken = object : TypeToken<List<Tutorial.Shift>>() {}.type
-    val authors = Gson().fromJson<List<Shift>>(file.readText(), typeToken)
+    val authors = Gson().fromJson<List<Shift>>(file.bufferedReader(), typeToken)
     println(authors.toString())
-    return authors.toString()
-
+    return authors
 }
