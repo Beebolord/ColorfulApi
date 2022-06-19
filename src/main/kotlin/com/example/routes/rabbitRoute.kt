@@ -33,12 +33,8 @@ private val hexes = listOf (
 private val color = "0xff3399"
 fun Route.randomRabbit() {
     var shifts2 : List<Shift>? = null
-    var sheduleData : List<Shift>? = null
-    runBlocking {
-        launch {
-            sheduleData = getData()
-        }
-    }
+
+
         get("/randomRabbit") {
             call.respond(
                 HttpStatusCode.OK,
@@ -56,7 +52,7 @@ fun Route.randomRabbit() {
             call.respond(HttpStatusCode.OK, hexes)
         }
         get("/shedule") {
-            call.respond(HttpStatusCode.OK, sheduleData!!)
+            call.respond(HttpStatusCode.OK, getData())
         }
         post("/postting") {
             call.respondText("yoooooooooo")
