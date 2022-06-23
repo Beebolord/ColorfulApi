@@ -4,7 +4,7 @@ import com.example.data.HexoCode
 import com.example.data.Rabbit
 import com.example.data.Shift
 import com.example.data.Tutorial
-import com.example.ticket.Data.Shedule.getData
+import com.example.ticket.Data.Shedule.Util
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import io.ktor.http.*
@@ -30,11 +30,11 @@ private val hexes = listOf (
     HexoCode("0xff33FF","Second")
 )
 
+private val tutorial = Tutorial()
+private val util = Util()
+
 private val color = "0xff3399"
 fun Route.randomRabbit() {
-    var shifts2 : List<Shift>? = null
-
-
         get("/randomRabbit") {
             call.respond(
                 HttpStatusCode.OK,
@@ -51,8 +51,8 @@ fun Route.randomRabbit() {
         get("/firstBall") {
             call.respond(HttpStatusCode.OK, hexes)
         }
-        get("/shedule") {
-            call.respond(HttpStatusCode.OK, getData())
+        get("/schedule") {
+            tutorial.main()
         }
         post("/postting") {
             call.respondText("yoooooooooo")

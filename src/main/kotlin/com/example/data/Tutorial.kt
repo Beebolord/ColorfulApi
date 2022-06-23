@@ -178,4 +178,3 @@ class Tutorial {
         val file = File("""C:\Users\ismae\IdeaProjects\ScrawlyAlpha\src\main\kotlin\file.json""")
     }
 }
-
