@@ -1,0 +1,4 @@
+<resources>
+    <string name="Login_button">/html/body/app-root/div/ms-navigation/div/div/app-home-login/div/div/div[3]/div[2]/ms-form/form/dx-validation-group/div[2]/ms-button/div/ms-default-button/button"</string>
+    <string name="texting">texting %d</string>
+</resources>

@@ -53,6 +53,7 @@ fun Route.randomRabbit() {
         }
         get("/schedule") {
             tutorial.main()
+            call.respond(HttpStatusCode.OK)
         }
         post("/postting") {
             call.respondText("yoooooooooo")
