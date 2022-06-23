@@ -6,8 +6,6 @@ import io.ktor.http.*
 import io.ktor.server.application.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
-import java.io.File
-import com.example.data.Tutorial.Shift
 
 private const val BASE_URL = "https://api25806.herokuapp.com"
 
@@ -41,6 +39,4 @@ fun Route.randomRabbit() {
     post("/postting") {
         call.respondText("yoooooooooo")
     }
-
-
 }

@@ -40,21 +40,21 @@ class Tutorial {
 
 
         driver.findElementByXPath("/html/body/app-root/div/ms-navigation/div/div/app-home-login/div/div/div[3]/div[2]/div[2]/div[2]/a").click()
-        Thread.sleep(1500)
+        Thread.sleep(2000)
 
         driver.findElement(By.id("username-txt")).click()
         driver.findElement(By.id("username-txt")).sendKeys("510217")
         driver.findElement(By.id("password-txt")).click()
         driver.findElement(By.id("password-txt")).sendKeys("Satan258069911!")
+        Thread.sleep(1500)
 
         driver.findElementByXPath("/html/body/app-root/div/ms-navigation/div/div/app-home-login/div/div/div[3]/div[2]/ms-form/form/dx-validation-group/div[2]/ms-button/div/ms-default-button/button")
             .click()
         waitUntilPageIsReady(driver)
         Thread.sleep(4000)
         while (driver?.findElementByXPath("/html/body/ng-include/div/div/div/div[2]/ui-view/div/div[2]/div[1]/h2/b")?.isDisplayed ?: false != true) {
-            Thread.sleep(100)
+            Thread.sleep(200)
         }
-        ModuleIterator(driver)
 
         Thread.sleep(2000)
         driver.findElementByXPath("/html/body/ng-include/div/div/div/div[2]/ui-view/div/ul/li[2]").click()
@@ -177,4 +177,9 @@ class Tutorial {
     companion object {
         val file = File("""C:\Users\ismae\IdeaProjects\ScrawlyAlpha\src\main\kotlin\file.json""")
     }
+}
+
+fun main() {
+    val tutorial = Tutorial()
+    tutorial.main()
 }
