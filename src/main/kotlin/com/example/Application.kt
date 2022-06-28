@@ -1,6 +1,5 @@
 package com.example
 
-import com.example.data.Tutorial
 import io.ktor.server.application.*
 import com.example.plugins.*
 import io.ktor.server.engine.*

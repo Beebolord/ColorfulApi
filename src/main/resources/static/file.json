@@ -1,66 +1,153 @@
- [{
-      "date": "09 June 2022",
-      "job": "",
-      "hours": ""
-    },
-    {
-      "date": "12 June 2022",
-      "job": "TÂCHE 16",
-      "hours": "10:30 - 19:00"
-    },
-    {
-      "date": "13 June 2022",
-      "job": "TÂCHE 16",
-      "hours": "10:30 - 19:00"
-    },
-    {
-      "date": "15 June 2022",
-      "job": "TÂCHE 16",
-      "hours": "10:30 - 19:00"
-    },
-    {
-      "date": "16 June 2022",
-      "job": "TÂCHE 14",
-      "hours": "10:30 - 19:00"
-    },
-    {
-      "date": "18 June 2022",
-      "job": "TÂCHE 14",
-      "hours": "10:30 - 19:00"
-    },
-    {
-      "date": "08 July 2022",
-      "job": "TÂCHE 18",
-      "hours": "10:30 - 19:00"
-    },
-    {
-      "date": "09 July 2022",
-      "job": "TÂCHE 18",
-      "hours": "10:30 - 19:00"
-    },
-    {
-      "date": "10 July 2022",
-      "job": "TÂCHE 18",
-      "hours": "10:30 - 19:00"
-    },
-    {
-      "date": "12 July 2022",
-      "job": "TÂCHE 18",
-      "hours": "10:30 - 19:00"
-    },
-    {
-      "date": "13 July 2022",
-      "job": "TÂCHE 18",
-      "hours": "10:30 - 19:00"
-    },
-    {
-      "date": "",
-      "job": "",
-      "hours": ""
-    },
-    {
-      "date": "",
-      "job": "",
-      "hours": ""
-    }
- ]
+[
+  {
+    "date": "",
+    "job": "",
+    "hours": ""
+  },
+  {
+    "date": "26 June 2022",
+    "job": "",
+    "hours": ""
+  },
+  {
+    "date": "27 June 2022",
+    "job": "TÂCHE 10",
+    "hours": "06:30 - 15:00"
+  },
+  {
+    "date": "28 June 2022",
+    "job": "Déplacé de",
+    "hours": "10:30 - 19:00"
+  },
+  {
+    "date": "29 June 2022",
+    "job": "Déplacé de",
+    "hours": "10:30 - 19:00"
+  },
+  {
+    "date": "30 June 2022",
+    "job": "TÂCHE 18",
+    "hours": "10:30 - 19:00"
+  },
+  {
+    "date": "01 July 2022",
+    "job": "TÂCHE 18",
+    "hours": "10:30 - 19:00"
+  },
+  {
+    "date": "02 July 2022",
+    "job": "TÂCHE 14",
+    "hours": "10:30 - 19:00"
+  },
+  {
+    "date": "",
+    "job": "",
+    "hours": ""
+  },
+  {
+    "date": "",
+    "job": "",
+    "hours": ""
+  },
+  {
+    "date": "",
+    "job": "",
+    "hours": ""
+  },
+  {
+    "date": "",
+    "job": "",
+    "hours": ""
+  },
+  {
+    "date": "",
+    "job": "",
+    "hours": ""
+  },
+  {
+    "date": "",
+    "job": "",
+    "hours": ""
+  },
+  {
+    "date": "",
+    "job": "",
+    "hours": ""
+  },
+  {
+    "date": "",
+    "job": "",
+    "hours": ""
+  },
+  {
+    "date": "26 July 2022",
+    "job": "",
+    "hours": ""
+  },
+  {
+    "date": "27 July 2022",
+    "job": "TÂCHE 18",
+    "hours": "10:30 - 19:00"
+  },
+  {
+    "date": "28 July 2022",
+    "job": "TÂCHE 18",
+    "hours": "10:30 - 19:00"
+  },
+  {
+    "date": "29 July 2022",
+    "job": "TÂCHE 18",
+    "hours": "10:30 - 19:00"
+  },
+  {
+    "date": "01 August 2022",
+    "job": "TÂCHE 18",
+    "hours": "10:30 - 19:00"
+  },
+  {
+    "date": "02 August 2022",
+    "job": "TÂCHE 18",
+    "hours": "10:30 - 19:00"
+  },
+  {
+    "date": "03 August 2022",
+    "job": "TÂCHE 18",
+    "hours": "10:30 - 19:00"
+  },
+  {
+    "date": "",
+    "job": "",
+    "hours": ""
+  },
+  {
+    "date": "",
+    "job": "",
+    "hours": ""
+  },
+  {
+    "date": "",
+    "job": "",
+    "hours": ""
+  },
+  {
+    "date": "",
+    "job": "",
+    "hours": ""
+  },
+  {
+    "date": "",
+    "job": "",
+    "hours": ""
+  },
+  {
+    "date": "",
+    "job": "",
+    "hours": ""
+  },
+  {
+    "date": "",
+    "job": "",
+    "hours": ""
+  }
+]
+[{"date":"","job":"","hours":""},{"date":"27 June 2022","job":"","hours":""},{"date":"28 June 2022","job":"Déplacé de","hours":"10:30 - 19:00"},{"date":"29 June 2022","job":"Déplacé de","hours":"10:30 - 19:00"},{"date":"30 June 2022","job":"TÂCHE 18","hours":"10:30 - 19:00"},{"date":"01 July 2022","job":"Échange travail","hours":"05:15 - 13:45"},{"date":"01 July 2022","job":"Échange de quart de travail","hours":"10:30 - 19:00"},{"date":"02 July 2022","job":"TÂCHE 14","hours":"10:30 - 19:00"},{"date":"","job":"","hours":""},{"date":"","job":"","hours":""},{"date":"","job":"","hours":""},{"date":"","job":"","hours":""},{"date":"","job":"","hours":""},{"date":"27 June 2022","job":"","hours":""},{"date":"","job":"","hours":""},{"date":"","job":"","hours":""},{"date":"","job":"","hours":""},{"date":"27 July 2022","job":"","hours":""},{"date":"28 July 2022","job":"TÂCHE 18","hours":"10:30 - 19:00"},{"date":"29 July 2022","job":"TÂCHE 18","hours":"10:30 - 19:00"},{"date":"","job":"","hours":""},{"date":"","job":"","hours":""},{"date":"","job":"","hours":""},{"date":"","job":"","hours":""},{"date":"","job":"","hours":""},{"date":"","job":"","hours":""},{"date":"","job":"","hours":""},{"date":"","job":"","hours":""},{"date":"","job":"","hours":""},{"date":"","job":"","hours":""},]

@@ -1,21 +1,21 @@
-package com.example.data
+
 import com.google.gson.Gson
-import com.google.gson.annotations.SerializedName
-import kotlinx.serialization.Serializable
 import org.openqa.selenium.By
 import org.openqa.selenium.JavascriptExecutor
 import org.openqa.selenium.firefox.FirefoxDriver
-import org.openqa.selenium.support.ui.ExpectedConditions
-import org.openqa.selenium.support.ui.Wait
 import org.openqa.selenium.support.ui.WebDriverWait
+import java.io.BufferedWriter
 import java.io.File
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 import java.util.*
+import java.util.concurrent.TimeUnit
 
 
 class Tutorial {
+
     fun main() {
+
         System.setProperty("webdriver.gecko.driver", """C:\geckodriver.exe""")
         val file = File("""C:\Users\ismae\IdeaProjects\ScrawlyAlpha\src\main\kotlin\file.json""")
         val driver = FirefoxDriver()
@@ -35,28 +35,41 @@ class Tutorial {
         )
         //logMeIn(driver, virtuo)
         driver["https://virtuo.ciussscn.rtss.qc.ca/portals/home/app/login"]
+
         driver.manage().window().fullscreen()
         println(driver.title)
         Thread.sleep(1500)
+
+
         driver.findElementByXPath("/html/body/app-root/div/ms-navigation/div/div/app-home-login/div/div/div[3]/div[2]/div[2]/div[2]/a").click()
         Thread.sleep(1500)
+
         driver.findElement(By.id("username-txt")).click()
         driver.findElement(By.id("username-txt")).sendKeys("510217")
         driver.findElement(By.id("password-txt")).click()
         driver.findElement(By.id("password-txt")).sendKeys("Satan258069911!")
 
+        val wait = WebDriverWait(driver, 8)
         driver.findElementByXPath("/html/body/app-root/div/ms-navigation/div/div/app-home-login/div/div/div[3]/div[2]/ms-form/form/dx-validation-group/div[2]/ms-button/div/ms-default-button/button")
             .click()
         waitUntilPageIsReady(driver)
-        Thread.sleep(2000)
-
+        Thread.sleep(4000)
+        println(driver.currentUrl)
         ModuleIterator(driver)
         Thread.sleep(2000)
-        driver.findElementByXPath("/html/body/ng-include/div/div/div/div[2]/ui-view/div/ul/li[2]").click()
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        try {
+            driver.findElementByXPath("/html/body/ng-include/div/div/div/div[2]/ui-view/div/ul/li[2]").click()
+        } catch(e : org.openqa.selenium.NoSuchElementException) {
+            Thread.sleep(1000)
+            println("hi there")
+            driver.findElementByXPath("/html/body/ng-include/div/div/div/div[2]/ui-view/div/ul/li[2]").click()
+        }
+        Thread.sleep(2000)
 
 
 
-        file.writeText("""{"json": [""")
+        file.appendText("""[""")
         val thread = Thread()
         try {
             tableIterator(driver)
@@ -66,10 +79,11 @@ class Tutorial {
                     .click()
                 tableIterator(driver)
             } catch (e: org.openqa.selenium.NoSuchElementException) {
+                println(e.message)
             }
         }
         Thread.sleep(1000)
-        file.appendText("]\n}")
+        file.appendText("]\n")
 
     }
 
@@ -94,10 +108,11 @@ class Tutorial {
         val password: String,
         val password_id: String
     )
+
     data class Shift(
-        @SerializedName("date") val date : String,
-        @SerializedName("job") val job : String,
-        @SerializedName("Shift")val shift : String
+        val date: String,
+        val job: String,
+        val hours: String,
     )
 
 
@@ -138,7 +153,7 @@ class Tutorial {
     fun tableIterator(driver: FirefoxDriver) {
         val gson = Gson()
         var i = 0
-        for (i in 10..30) {
+        for (i in 3..30) {
             var table = Table(
                 i,
                 "/html/body/ng-include/div/div/div/div[2]/ui-view/div/div/div[2]/div[3]/div[1]/div[2]/div/div/div[1]/div/div[2]/div/div[$i]/div/div[3]/div",
@@ -148,15 +163,18 @@ class Tutorial {
             println(driver.findElementByXPath(table.date).text)
             println(driver.findElementByXPath(table.job).text)
             println(driver.findElementByXPath(table.hours).text)
-                file.appendText(
-                    gson.toJson(
-                        Shift(
-                            driver.findElementByXPath(table.date).text,
-                            driver.findElementByXPath(table.job).text,
-                            driver.findElementByXPath(table.hours).text
-                        )
-                    ) + ","
-                )
+            val bw = BufferedWriter(file.writer())
+            Thread.sleep(500)
+            file.appendText( driver.findElementByXPath(table.date).text)
+            file.appendText(
+                gson.toJson(
+                    Shift(
+                        driver.findElementByXPath(table.date).text,
+                        driver.findElementByXPath(table.job).text,
+                        driver.findElementByXPath(table.hours).text
+                    )
+                ) + ","
+            )
 
         }
     }
@@ -169,11 +187,6 @@ class Tutorial {
         file.appendText("}")
     }
     companion object {
-        val file = File("""C:\Users\ismae\IdeaProjects\ScrawlyAlpha\src\main\kotlin\file.json""")
+        val file = File("""C:\Users\ismae\IdeaProjects\ColorfulApi\src\main\resources\static\file.json""")
     }
-}
-
-fun main() {
-    val tutorial = Tutorial()
-    tutorial.main()
 }

@@ -1,6 +1,5 @@
 import com.example.data.HexoCode
 import com.example.data.Rabbit
-import com.example.data.Tutorial
 import com.google.gson.Gson
 import io.ktor.http.*
 import io.ktor.server.application.*

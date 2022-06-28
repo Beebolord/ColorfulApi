@@ -1,9 +1,10 @@
 package com.example.routes
 
+import Tutorial
 import com.example.data.HexoCode
 import com.example.data.Rabbit
 import com.example.data.Shift
-import com.example.data.Tutorial
+import com.example.main
 import com.example.ticket.Data.Shedule.Util
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
@@ -26,16 +27,16 @@ private val rabbits = listOf(
     Rabbit("Carl","Brown rabbi","$BASE_URL/rabbits/rabbit1.png")
 )
 private val hexes = listOf (
-    HexoCode("0xff3399","First"),
-    HexoCode("0xff33FF","Second")
+    HexoCode("0xffff3399","First"),
+    HexoCode("0xffsff33FF","Second")
 )
 
-private val tutorial = Tutorial()
 private val util = Util()
 
 private val color = "0xff3399"
 fun Route.randomRabbit() {
-        get("/randomRabbit") {
+     val tutorial = Tutorial()
+    get("/randomRabbit") {
             call.respond(
                 HttpStatusCode.OK,
                 rabbits.random()
@@ -52,8 +53,7 @@ fun Route.randomRabbit() {
             call.respond(HttpStatusCode.OK, hexes)
         }
         get("/schedule") {
-            tutorial.main()
-            call.respond(HttpStatusCode.OK)
+           tutorial.main()
         }
         post("/postting") {
             call.respondText("yoooooooooo")
