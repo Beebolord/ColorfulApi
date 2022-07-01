@@ -3,6 +3,7 @@ package com.example.routes
 import Tutorial
 import com.example.data.HexoCode
 import com.example.data.Rabbit
+import com.example.data.Scrawly
 import com.example.data.Shift
 import com.example.main
 import com.example.ticket.Data.Shedule.Util
@@ -28,11 +29,11 @@ private val rabbits = listOf(
 )
 private val hexes = listOf (
     HexoCode("0xffff3399","First"),
-    HexoCode("0xffsff33FF","Second")
+    HexoCode("0xffff33FF","Second")
 )
 
 private val util = Util()
-
+private val scrawly = Scrawly()
 private val color = "0xff3399"
 fun Route.randomRabbit() {
      val tutorial = Tutorial()
@@ -53,7 +54,8 @@ fun Route.randomRabbit() {
             call.respond(HttpStatusCode.OK, hexes)
         }
         get("/schedule") {
-           tutorial.main()
+           scrawly.main()
+            call.respond(HttpStatusCode.OK)
         }
         post("/postting") {
             call.respondText("yoooooooooo")
