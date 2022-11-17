@@ -14,4 +14,6 @@ class Util {
         println(authors)
         return authors
     }
+    fun readFileDirectlyAsText(fileName: String): String
+            = File(fileName).readText(Charsets.UTF_8)
 }

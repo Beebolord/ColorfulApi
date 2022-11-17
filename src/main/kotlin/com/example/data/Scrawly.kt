@@ -7,6 +7,7 @@ import org.openqa.selenium.support.ui.WebDriverWait
 import java.io.File
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
+import java.util.*
 import java.util.concurrent.TimeUnit
 
 
@@ -43,7 +44,7 @@ class Scrawly {
         driver.findElement(By.id("username-txt")).click()
         driver.findElement(By.id("username-txt")).sendKeys("510217")
         driver.findElement(By.id("password-txt")).click()
-        driver.findElement(By.id("password-txt")).sendKeys("Satan258069911!")
+        driver.findElement(By.id("password-txt")).sendKeys("Soleil12+")
 
         val wait = WebDriverWait(driver, 8)
         driver.findElementByXPath("/html/body/app-root/div/ms-navigation/div/div/app-home-login/div/div/div[3]/div[2]/ms-form/form/dx-validation-group/div[2]/ms-button/div/ms-default-button/button")
@@ -62,10 +63,7 @@ class Scrawly {
             driver.findElementByXPath("/html/body/ng-include/div/div/div/div[2]/ui-view/div/ul/li[2]").click()
         }
         Thread.sleep(2000)
-
-
-
-        file.appendText("""[""")
+        file.writeText("""[""")
         val thread = Thread()
         try {
             tableIterator(driver)
@@ -174,10 +172,12 @@ class Scrawly {
     }
     fun hemingway() {
         file.appendText("mamamia0",charset("UTF-8"))
+
         file.appendText(Gson().toJson(Shift("in holy fuck 5 hours", "Post 10", "6:30-14h-00")))
     }
 
     companion object {
         val file = File("""C:\Users\ismae\IdeaProjects\ColorfulApi\src\main\resources\static\file.json""")
     }
+    
 }

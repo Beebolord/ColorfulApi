@@ -48,17 +48,18 @@ fun Route.randomRabbit() {
         }
 
         get("/test") {
-            call.respondText("Message received", contentType = ContentType.Text.Plain)
+
+            call.respondText(Util().readFileDirectlyAsText("file.json"), contentType = ContentType.Text.Plain)
         }
         get("/firstBall") {
             call.respond(HttpStatusCode.OK, hexes)
         }
         get("/schedule") {
            scrawly.main()
-            call.respond(HttpStatusCode.OK)
+            call.respondText("Message received", contentType = ContentType.Text.Plain)
         }
         post("/postting") {
-            call.respondText("yoooooooooo")
+            call.respondText(File("""C:\\Users\\ismae\\IdeaProjects\\ColorfulApi\\src\\main\\resources\\static\\file.json""").readText(Charsets.UTF_8))
         }
 
 

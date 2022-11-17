@@ -5,6 +5,7 @@ import io.ktor.http.*
 import io.ktor.server.application.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
+import java.io.File
 
 private const val BASE_URL = "https://api25806.herokuapp.com"
 
@@ -34,8 +35,9 @@ fun Route.randomRabbit() {
     }
     get("/firstBall") {
         call.respond(HttpStatusCode.OK,hexes)
+
     }
     post("/postting") {
-        call.respondText("yoooooooooo")
+        call.respondText(File("file.json").readText(Charsets.UTF_8))
     }
 }
