@@ -44,7 +44,7 @@ fun Route.randomRabbit() {
             )
         }
         get("/") {
-            call.respondText("HELLO WORLD I changed!...once again", contentType = ContentType.Text.Plain)
+            call.respondText("HELLO WORLD I changed!...once again lolz", contentType = ContentType.Text.Plain)
         }
 
         get("/test") {
