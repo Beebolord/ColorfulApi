@@ -35,6 +35,7 @@ private val hexes = listOf (
 private val util = Util()
 private val scrawly = Scrawly()
 private val color = "0xff3399"
+private val f = File("""C:\\Users\\ismae\\IdeaProjects\\ColorfulApi\\src\\main\\resources\\static\\file.json""")
 fun Route.randomRabbit() {
      val tutorial = Tutorial()
     get("/randomRabbit") {
@@ -55,11 +56,10 @@ fun Route.randomRabbit() {
             call.respond(HttpStatusCode.OK, hexes)
         }
         get("/schedule") {
-           scrawly.main()
-            call.respondText("Message received", contentType = ContentType.Text.Plain)
+            call.respondText("lolza")
         }
-        post("/postting") {
-            call.respondText(File("""C:\\Users\\ismae\\IdeaProjects\\ColorfulApi\\src\\main\\resources\\static\\file.json""").readText(Charsets.UTF_8))
+        get("/postting") {
+            call.respondFile(f)
         }
 
 
