@@ -12,6 +12,7 @@ private const val BASE_URL = "https://api25806.herokuapp.com"
 private val rabbits = listOf(
     Rabbit("Carl","Brown rabbi","$BASE_URL/rabbits/rabbit1.png")
 )
+private val f = File("""C:\\Users\\ismae\\IdeaProjects\\ColorfulApi\\src\\main\\resources\\static\\coolFile.json""")
 
 private val hexes = listOf (
     HexoCode("0xff3399","First"),
@@ -38,6 +39,5 @@ fun Route.randomRabbit() {
 
     }
     post("/postting") {
-        call.respondText(File("file.json").readText(Charsets.UTF_8))
-    }
+        call.respondFile(f)    }
 }
