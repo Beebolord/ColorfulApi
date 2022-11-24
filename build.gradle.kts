@@ -38,5 +38,9 @@ dependencies {
     implementation("com.google.code.gson:gson:2.8.5")
     implementation("io.ktor:ktor-server-freemarker:$ktor_version")
 
+    //Clink
+    implementation("com.github.ajalt.clikt:clikt:3.5.0")
+
+
 
 }

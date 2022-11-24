@@ -19,8 +19,6 @@ private val hexes = listOf (
     HexoCode("0xff33FF","Second")
 )
 
-private val tutorial = Tutorial()
-private val gson = Gson()
 fun Route.randomRabbit() {
     get("/randomRabbit") {
         call.respond(

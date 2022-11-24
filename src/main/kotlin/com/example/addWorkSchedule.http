@@ -1,0 +1,8 @@
+POST http://localhost:8069/post
+Content-Type: application/json
+
+{
+  "date": "Peppers 🌶",
+  "job": 5,
+  "hours": "nope"
+}

@@ -2,7 +2,10 @@
 import com.google.gson.Gson
 import org.openqa.selenium.By
 import org.openqa.selenium.JavascriptExecutor
+import org.openqa.selenium.Keys
+import org.openqa.selenium.WebDriver
 import org.openqa.selenium.firefox.FirefoxDriver
+import org.openqa.selenium.firefox.FirefoxOptions
 import org.openqa.selenium.support.ui.WebDriverWait
 import java.io.BufferedWriter
 import java.io.File
@@ -13,12 +16,37 @@ import java.util.concurrent.TimeUnit
 
 
 class Tutorial {
+    fun alternate() {
+        System.setProperty("webdriver.gecko.driver", "C:\\geckodriver.exe")
 
+        //Set Firefox Headless mode as TRUE
+
+        //Set Firefox Headless mode as TRUE
+        val options = FirefoxOptions()
+        options.setHeadless(true)
+        val driver: WebDriver = FirefoxDriver(options)
+        driver["http://www.google.com"]
+        println("Page title is - " + driver.title)
+
+        //Search on Google
+
+        //Search on Google
+        driver.findElement(By.name("q")).sendKeys("selenium webdriver")
+        driver.findElement(By.name("q")).sendKeys(Keys.ENTER)
+        println(driver.title)
+        driver.quit()
+    }
     fun main() {
+        System.setProperty("webdriver.gecko.driver", "C:\\geckodriver.exe")
 
-        System.setProperty("webdriver.gecko.driver", """C:\geckodriver.exe""")
+        //Set Firefox Headless mode as TRUE
+
+        //Set Firefox Headless mode as TRUE
+        val options = FirefoxOptions()
+        options.setHeadless(true)
+        val driver: WebDriver = FirefoxDriver(options)
+
         val file = File("""C:\Users\ismae\IdeaProjects\ScrawlyAlpha\src\main\kotlin\file.json""")
-        val driver = FirefoxDriver()
         val github = Login(
             "https://github.com",
             "ismaelforest@gmail.com",
@@ -41,7 +69,7 @@ class Tutorial {
         Thread.sleep(1500)
 
 
-        driver.findElementByXPath("/html/body/app-root/div/ms-navigation/div/div/app-home-login/div/div/div[3]/div[2]/div[2]/div[2]/a").click()
+        driver.findElement(By.xpath("/html/body/app-root/div/ms-navigation/div/div/app-home-login/div/div/div[3]/div[2]/div[2]/div[2]/a")).click()
         Thread.sleep(1500)
 
         driver.findElement(By.id("username-txt")).click()
@@ -50,8 +78,7 @@ class Tutorial {
         driver.findElement(By.id("password-txt")).sendKeys("Satan258069911!")
 
         val wait = WebDriverWait(driver, 8)
-        driver.findElementByXPath("/html/body/app-root/div/ms-navigation/div/div/app-home-login/div/div/div[3]/div[2]/ms-form/form/dx-validation-group/div[2]/ms-button/div/ms-default-button/button")
-            .click()
+        driver.findElement(By.xpath("""/html/body/app-root/div/ms-navigation/div/div/app-home-login/div/div/div[3]/div[2]/ms-form/form/dx-validation-group/div[2]/ms-button/div/ms-default-button/button""")).click()
         waitUntilPageIsReady(driver)
         Thread.sleep(4000)
         println(driver.currentUrl)
@@ -59,11 +86,11 @@ class Tutorial {
         Thread.sleep(2000)
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         try {
-            driver.findElementByXPath("/html/body/ng-include/div/div/div/div[2]/ui-view/div/ul/li[2]").click()
+            driver.findElement(By.xpath("/html/body/ng-include/div/div/div/div[2]/ui-view/div/ul/li[2]")).click()
         } catch(e : org.openqa.selenium.NoSuchElementException) {
-            Thread.sleep(1000)
+            Thread.sleep(4000)
             println("hi there")
-            driver.findElementByXPath("/html/body/ng-include/div/div/div/div[2]/ui-view/div/ul/li[2]").click()
+            driver.findElement(By.xpath("""/html/body/ng-include/div/div/div/div[2]/ui-view/div/ul/li[2]""")).click()
         }
         Thread.sleep(2000)
 
@@ -75,7 +102,7 @@ class Tutorial {
             tableIterator(driver)
         } catch (e: org.openqa.selenium.NoSuchElementException) {
             try {
-                driver.findElementByXPath("/html/body/ng-include/div/div/div/div[2]/ui-view/div/div/div[2]/div[2]/div[1]/div/div[1]/div[2]")
+                driver.findElement(By.xpath("/html/body/ng-include/div/div/div/div[2]/ui-view/div/div/div[2]/div[2]/div[1]/div/div[1]/div[2]"))
                     .click()
                 tableIterator(driver)
             } catch (e: org.openqa.selenium.NoSuchElementException) {
@@ -87,8 +114,8 @@ class Tutorial {
 
     }
 
-    private fun ModuleIterator(driver: FirefoxDriver) {
-        val list = driver.findElementsByTagName("span")
+    private fun ModuleIterator(driver: WebDriver) {
+        val list = driver.findElements(By.tagName("span"))
 
         for (i in list.indices) {
             println(list.get(i).text)
@@ -116,14 +143,14 @@ class Tutorial {
     )
 
 
-    fun logMeIn(driver: FirefoxDriver, login: Login) {
+    fun logMeIn(driver: WebDriver, login: Login) {
         driver.get(login.url)
-        driver.findElementById(login.username_id).sendKeys(login.username)
-        driver.findElementById(login.password_id).sendKeys(login.password)
+        driver.findElement(By.id(login.username_id)).sendKeys(login.username)
+        driver.findElement(By.id(login.password_id)).sendKeys(login.password)
     }
 
 
-    fun waitUntilPageIsReady(driver: FirefoxDriver) {
+    fun waitUntilPageIsReady(driver: WebDriver) {
         val executor = driver as JavascriptExecutor
         WebDriverWait(driver, 1)
             .until { executor.executeScript("return document.readyState") == "complete" }
@@ -144,13 +171,13 @@ class Tutorial {
         return formatted.toString()
     }
 
-    fun lastShift(driver: FirefoxDriver) {
-        driver.findElementByXPath("/html/body/ng-include/div/div/div/div[2]/ui-view/div/div/div[2]/div[2]/div[2]/div/div/h2").text
+    fun lastShift(driver: WebDriver) {
+        driver.findElement(By.xpath("/html/body/ng-include/div/div/div/div[2]/ui-view/div/div/div[2]/div[2]/div[2]/div/div/h2")).text
 
     }
 
 
-    fun tableIterator(driver: FirefoxDriver) {
+    fun tableIterator(driver: WebDriver) {
         val gson = Gson()
         var i = 0
         for (i in 3..30) {
@@ -160,18 +187,18 @@ class Tutorial {
                 "/html/body/ng-include/div/div/div/div[2]/ui-view/div/div/div[2]/div[3]/div[1]/div[2]/div/div/div[1]/div/div[2]/div/div[$i]/div/div[4]/div/b",
                 "/html/body/ng-include/div/div/div/div[2]/ui-view/div/div/div[2]/div[3]/div[1]/div[2]/div/div/div[1]/div/div[2]/div/div[$i]/div/div[6]/div",
             )
-            println(driver.findElementByXPath(table.date).text)
-            println(driver.findElementByXPath(table.job).text)
-            println(driver.findElementByXPath(table.hours).text)
+            println(driver.findElement(By.xpath(table.date)).text)
+            println(driver.findElement(By.xpath(table.job)).text)
+            println(driver.findElement(By.xpath(table.hours)).text)
             val bw = BufferedWriter(file.writer())
             Thread.sleep(500)
-            file.appendText( driver.findElementByXPath(table.date).text)
+            file.appendText( driver.findElement(By.xpath(table.date)).text)
             file.appendText(
                 gson.toJson(
                     Shift(
-                        driver.findElementByXPath(table.date).text,
-                        driver.findElementByXPath(table.job).text,
-                        driver.findElementByXPath(table.hours).text
+                        driver.findElement(By.xpath(table.date)).text,
+                        driver.findElement(By.xpath(table.job)).text,
+                        driver.findElement(By.xpath(table.hours)).text
                     )
                 ) + ","
             )

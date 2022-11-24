@@ -5,6 +5,8 @@ import org.openqa.selenium.JavascriptExecutor
 import org.openqa.selenium.firefox.FirefoxDriver
 import org.openqa.selenium.support.ui.WebDriverWait
 import java.io.File
+import kotlinx.serialization.Serializable
+
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 import java.util.*
@@ -60,7 +62,7 @@ class Scrawly {
         } catch(e : org.openqa.selenium.NoSuchElementException) {
             Thread.sleep(1000)
             println("hi there")
-            driver.findElementByXPath("/html/body/ng-include/div/div/div/div[2]/ui-view/div/ul/li[2]").click()
+                driver.findElementByXPath("/html/body/ng-include/div/div/div/div[2]/ui-view/div/ul/li[2]").click()
         }
         Thread.sleep(2000)
         file.writeText("""[""")
@@ -101,12 +103,6 @@ class Scrawly {
         val username_id: String,
         val password: String,
         val password_id: String
-    )
-
-    data class Shift(
-        val date: String,
-        val job: String,
-        val hours: String,
     )
 
 
